@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#08111f">
+  <meta name="description" content="ITDA 제3회 학술제 본선 발표. 일반의약품 기한·제조번호 OCR과 회수·반품 검토 보조.">
+  <title>ITDA 본선 발표 · [CODE] 테러범</title>
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body>
+  <div class="presentation" id="presentation">
+    <header class="appbar">
+      <div class="brand">
+        <strong>ITDA 본선</strong>
+        <span id="deck-title">선반 위 일반약의 날짜를 읽다</span>
+      </div>
+      <div class="app-actions" aria-label="발표 도구">
+        <button class="chrome-button" id="toc-button" type="button" title="목차 열기 (M)">목차</button>
+        <button class="chrome-button" id="notes-button" type="button" title="발표자 노트 열기 (N)"><span class="wide-label">발표자 </span>노트</button>
+        <button class="chrome-button" id="fullscreen-button" type="button">전체화면</button>
+      </div>
+    </header>
+
+    <main class="viewport" id="viewport" aria-live="polite">
+      <div class="stage-wrap" id="stage-wrap">
+        <div class="stage" id="stage" tabindex="-1">
+          <div class="error-screen">
+            <p>발표 데이터를 불러오는 중입니다.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="controlbar" aria-label="슬라이드 재생 제어">
+      <div class="playback">
+        <button class="chrome-button" id="prev-button" type="button" aria-label="이전 슬라이드">←</button>
+        <button class="chrome-button primary" id="play-button" type="button" aria-pressed="false" title="재생 또는 일시정지 (Space/P)">재생</button>
+        <button class="chrome-button" id="next-button" type="button" aria-label="다음 슬라이드">→</button>
+        <span class="slide-position" id="slide-position">01 / 11</span>
+      </div>
+      <div class="progress-track" aria-hidden="true">
+        <span class="progress-bar" id="progress-bar"></span>
+        <span class="time-bar" id="time-bar"></span>
+      </div>
+      <div class="jump-actions">
+        <span class="time-display" id="time-display">00:00 / 09:00</span>
+      </div>
+    </footer>
+  </div>
+
+  <section class="overlay" id="toc-overlay" aria-hidden="true" aria-label="발표 목차">
+    <div class="overlay-panel" role="dialog" aria-modal="true" aria-labelledby="toc-title">
+      <div class="overlay-head">
+        <div>
+          <div class="eyebrow">11 SLIDES · 9 MIN REHEARSAL</div>
+          <h2 id="toc-title">발표 목차</h2>
+        </div>
+        <button class="overlay-close" type="button" data-close-overlay aria-label="목차 닫기">×</button>
+      </div>
+      <ol class="toc-list" id="toc-list"></ol>
+    </div>
+  </section>
+
+  <section class="overlay" id="notes-overlay" aria-hidden="true" aria-label="발표자 노트">
+    <div class="overlay-panel notes-panel" role="dialog" aria-modal="true" aria-labelledby="notes-title">
+      <div class="overlay-head">
+        <div>
+          <div class="eyebrow">PRESENTER NOTES</div>
+          <h2 id="notes-title">발표자 노트</h2>
+        </div>
+        <button class="overlay-close" type="button" data-close-overlay aria-label="노트 닫기">×</button>
+      </div>
+      <div class="notes-script" id="notes-script"></div>
+      <div class="notes-cue" id="notes-cue"></div>
+      <div class="notes-correction" id="notes-correction"></div>
+      <ul class="source-list" id="source-list"></ul>
+    </div>
+  </section>
+
+  <script id="slide-data" type="application/json">__SLIDES_JSON__</script>
+  <script src="presentation.js" defer></script>
+</body>
+</html>
